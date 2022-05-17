@@ -19,7 +19,7 @@ object ClimateService {
    */
   def isClimateRelated(description: String): Boolean = {
     description.contains("global warming") || description.contains("IPCC") || description.contains("climate change")
-    
+
   }
 
   /**
@@ -28,7 +28,18 @@ object ClimateService {
    * --> Some(value)
    * otherwise : None
    */
-  def parseRawData(list: List[(Int, Int, Double)]) : List[Option[CO2Record]] = ???
+  def parseRawData(list: List[(Int, Int, Double)]) : List[Option[CO2Record]] = {
+    val list_split = list.map( value => {
+      if (value._3>0){
+        Some(CO2Record(value._1,value._2,value._3))
+        
+      }else{
+        None
+      }
+
+    })
+    return list_split
+  }
 
   /**
    * remove all values from december (12) of every year
@@ -37,7 +48,6 @@ object ClimateService {
    * @return a list
    */
   def filterDecemberData(list: List[Option[CO2Record]]) : List[CO2Record] = ???
-
   /**
    * display every item on the list using the CO2Record's "show" function
    *
@@ -50,9 +60,18 @@ object ClimateService {
     logger.info("Call record.show function here inside a map function")
   }
 
-  def getMinMax() : (Int, Int) = ???
+  def getMinMax(list : List[Int]) : (Int, Int) = {
+    val min  = list.min
+    val max = list.max
+    val result = (min,max)
+    return result
+     
+  }
 
-  def getMinMaxByYear(year: Int) : (Int, Int) = ???
+  def getMinMaxByYear(year: Int) : (Int, Int) = {
+    val list = getCO2RawDataFromHawaii
+    return list
+  }
 
   /**
    * CO2 record from 1958 to 2022
