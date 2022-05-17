@@ -1,3 +1,4 @@
+
 import com.github.polomarcus.utils.ClimateService
 import com.github.polomarcus.model.CO2Record
 import org.scalatest.funsuite.AnyFunSuite
@@ -11,6 +12,7 @@ class ClimateServiceTest extends AnyFunSuite {
   test("isClimateRelated - climate related words should return true") {
     assert(ClimateService.isClimateRelated("climate change"))
     assert(ClimateService.isClimateRelated("IPCC"))
+    assert(ClimateService.isClimateRelated("global warming"))
   }
 
   //@TODO

@@ -4,6 +4,7 @@ import com.typesafe.scalalogging.Logger
 import com.github.polomarcus.model.CO2Record
 
 import scala.util.matching.Regex
+import javax.net.ssl.TrustManager
 
 object ClimateService {
   val logger = Logger(ClimateService.getClass)
@@ -16,7 +17,10 @@ object ClimateService {
    * @param description "my awesome sentence contains a key word like climate change"
    * @return Boolean True
    */
-  def isClimateRelated(description: String): Boolean = ???
+  def isClimateRelated(description: String): Boolean = {
+    description.contains("global warming") || description.contains("IPCC") || description.contains("climate change")
+    
+  }
 
   /**
    * parse a list of raw data and transport it with type into a list of CO2Record
