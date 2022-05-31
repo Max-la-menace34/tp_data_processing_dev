@@ -30,7 +30,6 @@ object ClimateService {
    * you can access to Tuple with myTuple._1, myTuple._2, myTuple._3
    */
   def parseRawData(list: List[(Int, Int, Double)]) : List[Option[CO2Record]] = {
-<<<<<<< HEAD:src/main/scala/com/github/polomarcus/utils/ClimateService.scala
     val list_split = list.map( value => {
       if (value._3>0){
         Some(CO2Record(value._1,value._2,value._3))
@@ -41,10 +40,6 @@ object ClimateService {
 
     })
     return list_split
-=======
-    list.map { record => ??? }
-    ???
->>>>>>> 1a0b0b03f788c9ad1a1a48792701b8f13ad3c1f6:tp-functional-programming-scala/src/main/scala/com/github/polomarcus/utils/ClimateService.scala
   }
 
   /**
@@ -66,7 +61,6 @@ object ClimateService {
     logger.info("Call record.show function here inside a map function")
   }
 
-<<<<<<< HEAD:src/main/scala/com/github/polomarcus/utils/ClimateService.scala
   def getMinMax(list : List[Int]) : (Int, Int) = {
     val min  = list.min
     val max = list.max
@@ -79,11 +73,6 @@ object ClimateService {
     val list = getCO2RawDataFromHawaii
     return list
   }
-=======
-  def getMinMax(list: List[CO2Record]) : (Double, Double) = ???
-
-  def getMinMaxByYear(list: List[CO2Record], year: Int) : (Double, Double) = ???
->>>>>>> 1a0b0b03f788c9ad1a1a48792701b8f13ad3c1f6:tp-functional-programming-scala/src/main/scala/com/github/polomarcus/utils/ClimateService.scala
 
   /**
    * CO2 record from 1958 to 2022
