@@ -25,7 +25,13 @@ object PostgresService {
          |""".stripMargin)
 
     dataset.write
-      ???
+      .format("jdbc")
+      .option("url", s"jdbc:postgresql://$dbHost:5432/metabase")
+      .option("dbtable", "news")
+      .option("user", user)
+      .option("password", password)
+      .save()
+    
 
     logger.info("Saved news inside PG database")
 

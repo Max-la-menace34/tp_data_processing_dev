@@ -51,11 +51,6 @@ object NewsService {
    * @param newsDataset
    * @return newsDataset but with containsWordGlobalWarming to true
    */
-  def filterNews(newsDataset: Dataset[News]) : Dataset[News] = {
-    newsDataset.filter { news =>
-      ??? //@TODO complete here
-    }
-  }
 
   /**
    * detect if a sentence is climate related by looking for these words in sentence :
